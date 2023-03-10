@@ -25,14 +25,13 @@ function convertFromJSON(jsonData, units) {
 
 export default async function getData(city, unitsArg) {
   let weatherObj;
-  const units = unitsArg;
   try {
     const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=eac65b0201f1a3ee0d12a38d8eaf8189`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unitsArg}&appid=eac65b0201f1a3ee0d12a38d8eaf8189`,
       { mode: "cors" }
     );
     const weatherJSON = await response.json();
-    weatherObj = await convertFromJSON(weatherJSON, units);
+    weatherObj = await convertFromJSON(weatherJSON, unitsArg);
   } catch (err) {
     console.log(`Can't get weather data: ${err}`);
   }
