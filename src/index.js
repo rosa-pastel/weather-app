@@ -56,7 +56,6 @@ function displayData(data) {
   rightDiv.children.item(2).getElementsByTagName("img")[0].src = windIcon;
 
   const weatherID = `${data.id}`;
-  console.log(weatherID);
   setBackground(weatherID);
 }
 

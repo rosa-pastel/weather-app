@@ -1,5 +1,4 @@
 function convertFromJSON(jsonData, units) {
-  console.log(jsonData);
   let unitSign;
   if (units === "metric") {
     unitSign = " °C";
@@ -21,7 +20,6 @@ function convertFromJSON(jsonData, units) {
     units: unitSign,
     icon: `https://openweathermap.org/img/wn/${iconId}@2x.png`,
   };
-  console.log(weatherObj);
   return weatherObj;
 }
 
