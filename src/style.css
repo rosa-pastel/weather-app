@@ -112,7 +112,7 @@ input#city-field:focus {
 }
 input#city-field::placeholder {
   color: #f5f5f5d8;
-  text-shadow: none;
+  text-transform: none;
 }
 select#units {
   background-color: #f5f5f500;

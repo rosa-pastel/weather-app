@@ -71,7 +71,7 @@ function initPage() {
   city.addEventListener("change", () => updatePage(city.value, units.value));
   units.addEventListener("change", () => updatePage(city.value, units.value));
 
-  updatePage(city.value, units.value);
+  updatePage("Istanbul", units.value);
 }
 
 initPage();
