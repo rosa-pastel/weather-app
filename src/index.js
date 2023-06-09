@@ -39,21 +39,21 @@ function displayData(data) {
 
   const rightDiv = document.getElementById("right");
   rightDiv.children
-    .item(0)
-    .getElementsByTagName("div")[0].children[1].textContent = data.feels;
-  rightDiv.children.item(0).getElementsByTagName("img")[0].src = feelsIcon;
-
-  rightDiv.children
     .item(1)
-    .getElementsByTagName(
-      "div"
-    )[0].children[1].textContent = `${data.humidity}%`;
-  rightDiv.children.item(1).getElementsByTagName("img")[0].src = humIcon;
+    .getElementsByTagName("div")[0].children[1].textContent = data.feels;
+  rightDiv.children.item(1).getElementsByTagName("img")[0].src = feelsIcon;
 
   rightDiv.children
     .item(2)
+    .getElementsByTagName(
+      "div"
+    )[0].children[1].textContent = `${data.humidity}%`;
+  rightDiv.children.item(2).getElementsByTagName("img")[0].src = humIcon;
+
+  rightDiv.children
+    .item(3)
     .getElementsByTagName("div")[0].children[1].textContent = data.wind;
-  rightDiv.children.item(2).getElementsByTagName("img")[0].src = windIcon;
+  rightDiv.children.item(3).getElementsByTagName("img")[0].src = windIcon;
 
   const weatherID = `${data.id}`;
   setBackground(weatherID);
@@ -66,10 +66,15 @@ async function updatePage(cityInput, unitsInput) {
 
 function initPage() {
   const units = document.querySelector("select#units");
-  const city = document.getElementById("city-field");
+  const cityInput = document.getElementById("city-field");
+  const cityStatic = document.querySelector("#left>div:first-child");
 
-  city.addEventListener("change", () => updatePage(city.value, units.value));
-  units.addEventListener("change", () => updatePage(city.value, units.value));
+  cityInput.addEventListener("change", () =>
+    updatePage(cityInput.value, units.value)
+  );
+  units.addEventListener("change", () =>
+    updatePage(cityStatic.textContent, units.value)
+  );
 
   updatePage("Istanbul", units.value);
 }
